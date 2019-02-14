@@ -43,9 +43,9 @@ module.exports = function(sequelize, DataTypes) {
     console.log(newUser);
   });
 
-  // User.associate = function (models) {
-  //   models.User.hasMany(models.UserDream), {}
-  // }
+  User.associate = function (models) {
+    models.User.hasMany(models.Dream)
+  };
 
   return User
 };

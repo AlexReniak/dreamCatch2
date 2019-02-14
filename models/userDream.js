@@ -1,42 +1,46 @@
 // Create dream table
 module.exports = function(sequelize, DataTypes) {
-  const UserDreams = sequelize.define("UserDreams", {
+  // var stamp = moment().format("lll");
+  var Dream = sequelize.define("Dream", {
     
     title: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 140]
+        len: [1]
       }
     },
-
-    dreams: {
+    body: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-
-    sleep_quality: {
+    quality_sleep: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      validate: {
+        min: 0,
+        max: 10
+      }
     },
-
-    hours_slept: {
+    length_sleep: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+      validate: {
+        min: 0,
+        max: 12
+      }
+    }
   });
 
-  // UserDream.associate = function(models) {
-  //   models.UserDream.belongsTo(models.User, {
-  //     onDelete: "CASCADE",
-  //     validate: {
-  //       allowNull: false
-  //     }
-  //   })
-  // }
+  Dream.associate = function(models) {
+    models.Dream.belongsTo(models.User, {
+      onDelete: "CASCADE",
+      validate: {
+        allowNull: false
+      }
+    })
+  }
   
-  return UserDreams;
+  return Dream;
 };

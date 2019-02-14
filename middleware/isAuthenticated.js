@@ -1,5 +1,5 @@
 module.exports = function (req, res, next) {
-  console.log("You got authentication working!");
+  console.log("User authenticated");
   if (req.user) {
     return next();
   }

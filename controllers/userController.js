@@ -9,7 +9,6 @@ module.exports = {
         where: {
           username: req.params.username
         },
-        // include: [db.UserDreams]
       })
       .then(userDB => res.json(userDB))
       .catch(err => console.log(err));
@@ -44,6 +43,19 @@ module.exports = {
       })
       .then(userDB => req.json(userDB))
       .catch(err => console.log(err));
+  },
+
+  userInformation: function(req, res) {
+    db.User
+      .findOne({
+        where: {
+          id: req.user.id
+        }
+      })
+      .then((dbUserInfo) => {
+        res.json(dbUserInfo);
+      })
+      .catch(err => console.log(err)); 
   }
 };
 

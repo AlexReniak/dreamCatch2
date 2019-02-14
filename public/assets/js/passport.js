@@ -8,8 +8,6 @@ $(document).ready(function() {
       password: $("#password-input").val().trim()
     };
 
-    console.log(userInfo);
-
     $.ajax({
       url: "/api/user/login",
       method: "POST",
@@ -31,8 +29,6 @@ $(document).ready(function() {
       email: $("#new-email").val().trim(),
       password: $("#new-password").val().trim()
     };
-
-    console.log(userInfo);
 
     $.ajax({
       url: "/api/user/register",

@@ -11,6 +11,10 @@ router
   .post(userController.registerUser);
 
 router
+  .route("/userdata")
+  .get(userController.userInformation);
+
+router
   .route("/:username")
   .get(userController.findUser)
   .delete(userController.delete);
