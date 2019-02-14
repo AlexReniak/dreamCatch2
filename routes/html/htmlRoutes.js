@@ -18,6 +18,10 @@ router.route("/register").get(function (req, res) {
   res.sendFile(path.join(__dirname, "../../public/html/Dream-Catcher_register.html"));
 });
 
+router.route("/dashboard/alldreams").get((req, res) => {
+  res.sendFile(path.join(__dirname, "../../public/html/allDreams.html"));
+})
+
 
 // Route for logging user out (hit this with an <a> link)
 router.get("/logout", function (req, res) {

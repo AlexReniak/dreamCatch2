@@ -31,7 +31,7 @@ module.exports = {
 
   login: function(req, res) {
     console.log(req.user);
-    res.json(`/dashboard/${req.user.username}`);
+    res.json(`/dashboard`);
   },
 
   delete: function(req, res) {

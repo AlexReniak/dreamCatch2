@@ -85,5 +85,18 @@ $(document).ready(function () {
   })
   .catch(err => console.log(err));
   }
+
+  $("dashboard-home-btn").on("click", function() {
+    
+    $.ajax({
+      url: "/api/user/userdata",
+      type: "GET"
+    }).then(userData => {
+      location.replace(`/dashboard/${userData.username}`)
+  
+    })
+    .catch(err => console.log(err));
+
+  })
   
 });
